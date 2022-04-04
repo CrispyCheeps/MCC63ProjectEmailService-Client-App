@@ -3,27 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.id.mailservice.clientapp.model;
+package co.id.mailservice.clientapp.model.dto;
 
-import java.util.List;
+import javax.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  *
- * @author Deanchristt
+ * @author MSI-JO
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class User {
+public class LoginRequestData {
 
-    private Long id;
-    private String name;
+    @NotEmpty(message = "email is required")
     private String email;
+    
+    @NotEmpty(message = "password is required")
     private String password;
-    private List<Role> role;
 }

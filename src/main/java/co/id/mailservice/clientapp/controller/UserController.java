@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
-    private UserService userService;
+//    private UserService userService;
 
 //    @GetMapping
 //    public String index(Model model, Authentication authentication) {
