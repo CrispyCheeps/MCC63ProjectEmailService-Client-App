@@ -41,28 +41,29 @@ public class UserService {
     @Value("${app.baseUrl}/user")
     private String url;
     
-//    public void create(User user) {
-//        try {
-//            ResponseEntity<User> response = restTemplate.exchange(
-//                    url,
-//                    HttpMethod.POST,
-//                    new HttpEntity<>(user),
-//                    new ParameterizedTypeReference<User>() {
-//                    }
-//            );
-//        } catch (ResponseStatusException ex) {
-//            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
-//        }
-//    }
-//    public HttpHeaders createHeaders(String username, String password) {
-//        return new HttpHeaders() {
-//            {
-//                String auth = username + ":" + password;
-//                byte[] encodeAuth = Base64.encodeBase64(
-//                        auth.getBytes(Charset.forName("US-ASCII")));
-//                String authHeader = "Basic " + new String(encodeAuth);
-//                set("Authorization", authHeader);
-//            }
-//        };
-//    }
+    public void create(User user) {
+        try {
+            ResponseEntity<User> response = restTemplate.exchange(
+                    url,
+                    HttpMethod.POST,
+                    new HttpEntity<>(user),
+                    new ParameterizedTypeReference<User>() {
+                    }
+            );
+        } catch (ResponseStatusException ex) {
+            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
+        }
+    }
+
+    public HttpHeaders createHeaders(String username, String password) {
+        return new HttpHeaders() {
+            {
+                String auth = username + ":" + password;
+                byte[] encodeAuth = Base64.encodeBase64(
+                        auth.getBytes(Charset.forName("US-ASCII")));
+                String authHeader = "Basic " + new String(encodeAuth);
+                set("Authorization", authHeader);
+            }
+        };
+    }
 }

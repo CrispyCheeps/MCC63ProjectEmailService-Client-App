@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -23,29 +24,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @AllArgsConstructor
-@RequestMapping("/user")
+//@RequestMapping("/register") //Mewakili objek dari endpoint yang dikunjungi
 public class UserController {
-
+    
+    //Dalam kasus ini hanya perlu /register
+    
     private UserService userService;
 
-//    @GetMapping
-//    public String index(Model model, Authentication authentication) {
-//        System.out.println(authentication);
-//        model.addAttribute("regions", userService.getAll());
-//        return "region/index";
-//    }
-//    @GetMapping("/create")
-//    public String create(User user) {
-//        return "region/create-form";
-//    }
-//
-//    @PostMapping("/create")
-//    public String create(@Valid User user, BindingResult result) {
+    @GetMapping
+    public String register(User user) {
+        return "SignUpPage";
+    }
+
+    @PostMapping(value = "/create")
+    public String create(@Valid @RequestBody User user) {
 //        if (result.hasErrors()) {
-//            return "user/create-form";
+//            return "SignUpPage";
 //        }
-//
-//        userService.create(user);
-//        return "redirect:/user";
-//    }
+        userService.create(user);
+        return "redirect:/home";
+    }
 }
