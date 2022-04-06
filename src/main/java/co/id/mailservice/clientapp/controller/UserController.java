@@ -6,9 +6,11 @@
 package co.id.mailservice.clientapp.controller;
 
 import co.id.mailservice.clientapp.model.User;
+import co.id.mailservice.clientapp.model.dto.UserData;
 import co.id.mailservice.clientapp.service.UserService;
 import javax.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,25 +25,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Deanchristt
  */
 @Controller
-@AllArgsConstructor
-//@RequestMapping("/register") //Mewakili objek dari endpoint yang dikunjungi
+//Mewakili objek dari endpoint yang dikunjungi
 public class UserController {
     
     //Dalam kasus ini hanya perlu /register
     
     private UserService userService;
 
-    @GetMapping
-    public String register(User user) {
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping("/register")
+    public String register(UserData userData) {
         return "SignUpPage";
     }
 
-    @PostMapping(value = "/create")
-    public String create(@Valid @RequestBody User user) {
-//        if (result.hasErrors()) {
-//            return "SignUpPage";
-//        }
-        userService.create(user);
+    @PostMapping( "/register")
+    public String create(@Valid @RequestBody UserData userData, BindingResult result) {
+        if (result.hasErrors()) {
+            return "SignUpPage";
+        }
+        userService.create(userData);
         return "redirect:/home";
     }
 }

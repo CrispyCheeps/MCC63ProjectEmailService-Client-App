@@ -9,6 +9,8 @@ import co.id.mailservice.clientapp.model.User;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+
+import co.id.mailservice.clientapp.model.dto.UserData;
 import lombok.AllArgsConstructor;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,6 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 public class UserService {
 
-    private List<User> users = new ArrayList<>();
     private RestTemplate restTemplate;
 
     @Autowired
@@ -41,12 +42,12 @@ public class UserService {
     @Value("${app.baseUrl}/user")
     private String url;
     
-    public void create(User user) {
+    public void create(UserData userData) {
         try {
-            ResponseEntity<User> response = restTemplate.exchange(
+            restTemplate.exchange(
                     url,
                     HttpMethod.POST,
-                    new HttpEntity<>(user),
+                    new HttpEntity<>(userData),
                     new ParameterizedTypeReference<User>() {
                     }
             );
@@ -55,15 +56,15 @@ public class UserService {
         }
     }
 
-    public HttpHeaders createHeaders(String username, String password) {
-        return new HttpHeaders() {
-            {
-                String auth = username + ":" + password;
-                byte[] encodeAuth = Base64.encodeBase64(
-                        auth.getBytes(Charset.forName("US-ASCII")));
-                String authHeader = "Basic " + new String(encodeAuth);
-                set("Authorization", authHeader);
-            }
-        };
-    }
+//    public HttpHeaders createHeaders(String username, String password) {
+//        return new HttpHeaders() {
+//            {
+//                String auth = username + ":" + password;
+//                byte[] encodeAuth = Base64.encodeBase64(
+//                        auth.getBytes(Charset.forName("US-ASCII")));
+//                String authHeader = "Basic " + new String(encodeAuth);
+//                set("Authorization", authHeader);
+//            }
+//        };
+//    }
 }
