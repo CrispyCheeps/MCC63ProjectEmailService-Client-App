@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  *
  * @author Deanchristt
@@ -23,5 +25,6 @@ public class EmailListName {
     private Long id;
     private String name;
     private User user;
+    private List<Participant> participants;
     private ScheduleEmail scheduleEmail;
 }

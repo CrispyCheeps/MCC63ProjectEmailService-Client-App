@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  *
  * @author Deanchristt
@@ -24,5 +26,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private Role role;
+    private List<Role> roles;
+    private List<EmailListName> emailListNames;
+    private List<Konten> kontens;
 }

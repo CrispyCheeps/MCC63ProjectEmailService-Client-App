@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Recipient Page - Email Service</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark" id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MCC 63 Java</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/region}">Create Email</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/emailListName}">Create Recipients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/region}">Send Email</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="row">
+<!--  template  1-->
+  <div class="col-lg-6">
+    <h3 class="big-heading">Promo Umum</h3>
+    <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i> pilih template</button>
+  </div>
+
+  <div class="col-lg-6">
+    <img class="title-image" src="images/iphone6.png" alt="iphone-mockup">
+  </div>
+  <!--  template  2-->
+  <div class="col-lg-6">
+    <h3 class="big-heading">Promo Ramadhan</h3>
+    <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i> pilih template</button>
+  </div>
+
+  <div class="col-lg-6">
+    <img class="title-image" src="images/iphone6.png" alt="iphone-mockup">
+  </div>
+
+  <!--  template  3-->
+  <div class="col-lg-6">
+    <h3 class="big-heading">Promo Natal</h3>
+    <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i> pilih template</button>
+  </div>
+
+  <div class="col-lg-6">
+    <img class="title-image" src="images/iphone6.png" alt="iphone-mockup">
+  </div>
+</div>
+
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/sweetalert.min.js}"></script>
+<script th:src="@{/js/emailListName/index.js}" th:inline="javascript"></script>
+<script th:src="@{/js/datatable.min.js}"></script>
+</body>
+</html>

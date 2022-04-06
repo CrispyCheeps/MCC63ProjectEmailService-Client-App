@@ -7,7 +7,6 @@ package co.id.mailservice.clientapp.controller;
 
 import co.id.mailservice.clientapp.model.User;
 import co.id.mailservice.clientapp.service.UserService;
-import javafx.scene.layout.Region;
 import javax.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
