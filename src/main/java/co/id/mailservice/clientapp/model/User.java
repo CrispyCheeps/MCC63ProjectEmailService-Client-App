@@ -5,11 +5,12 @@
  */
 package co.id.mailservice.clientapp.model;
 
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /**
  *
@@ -25,5 +26,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private List<Role> role;
+    private List<Role> roles;
+    private List<EmailListName> emailListNames;
+    private List<Konten> kontens;
 }

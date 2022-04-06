@@ -30,16 +30,16 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 public class UserService {
 
-//    private List<User> users = new ArrayList<>();
-//    private RestTemplate restTemplate;
-//
-//    @Autowired
-//    public UserService(RestTemplate restTemplate) {
-//        this.restTemplate = restTemplate;
-//    }
-//
-//    @Value("${app.baseUrl}/user")
-//    private String url;
+    private List<User> users = new ArrayList<>();
+    private RestTemplate restTemplate;
+
+    @Autowired
+    public UserService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    @Value("${app.baseUrl}/user")
+    private String url;
     
 //    public void create(User user) {
 //        try {

@@ -5,6 +5,7 @@
  */
 package co.id.mailservice.clientapp.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,5 +24,5 @@ public class ScheduleEmail {
     private Long id;
     private EmailListName emailListName;
     private Konten konten;
-    private Date tanggal_kirim;
+    private LocalDateTime tanggal_kirim;
 }

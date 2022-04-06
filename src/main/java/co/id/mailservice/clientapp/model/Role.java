@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  *
  * @author Deanchristt
@@ -22,5 +24,5 @@ public class Role {
 
     private Long id;
     private String name;
-    private User user;
+    private List<User> user;
 }

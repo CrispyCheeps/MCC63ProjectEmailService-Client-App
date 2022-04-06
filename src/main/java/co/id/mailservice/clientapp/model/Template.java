@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  *
  * @author Deanchristt
@@ -23,4 +25,5 @@ public class Template {
     private Long id;
     private String name;
     private String pathHtml;
+    private List<Konten> kontens;
 }

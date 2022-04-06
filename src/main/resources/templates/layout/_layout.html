@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Country Page - MCC 63</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/datatable.min.css}">
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light navbar-background-color" id="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">MCC 63 Java</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/region}">Region</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/country}">Country</a>
+                </li>
+                <li class="nav-item">
+                    <form th:action="@{/logout}" th:method="POST">
+                        <button type="submit" class="btn btn-sm btn-danger">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4" id="content" layout:fragment="content">
+    <!--Content Here-->
+</div>
+
+<div layout:fragment="sub_content"></div>
+
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/datatable.min.js}"></script>
+<script th:src="@{/js/sweetalert.min.js}"></script>
+<script th:src="@{/js/csrf.js}"></script>
+<th:block layout:fragment="script_content"></th:block>
+</body>
+</html>

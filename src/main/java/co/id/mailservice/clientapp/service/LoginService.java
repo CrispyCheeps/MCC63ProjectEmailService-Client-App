@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.id.mailservice.clientapp.service;
 
 import co.id.mailservice.clientapp.model.dto.LoginRequestData;
 import co.id.mailservice.clientapp.model.dto.LoginResponseData;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -25,10 +17,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
-/**
- *
- * @author MSI-JO
- */
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class LoginService {
 
@@ -46,25 +38,17 @@ public class LoginService {
         try {
             ResponseEntity<LoginResponseData> res = restTemplate
                     .exchange(url, HttpMethod.POST, new HttpEntity<>(loginRequestData),
-                            new ParameterizedTypeReference<LoginResponseData>() {
+                            new ParameterizedTypeReference<LoginResponseData>(){
                             });
 
             if (res.getStatusCode() == HttpStatus.OK) {
                 setAuthentication(res.getBody(), loginRequestData.getPassword());
                 return true;
             }
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Server unavailable");
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(e.getStatus(), e.getMessage());
         }
-
         return false;
-    }
-
-    public void setAuthentication(LoginResponseData res, String password) {
-        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(res.getEmail(),
-                password, getAuthorities(res.getAuthorities()));
-        
-        SecurityContextHolder.getContext().setAuthentication(authToken);
     }
 
     public Collection<GrantedAuthority> getAuthorities(List<String> authorities) {
@@ -74,4 +58,8 @@ public class LoginService {
                 .collect(Collectors.toList());
     }
 
+    public void setAuthentication(LoginResponseData res, String pass) {
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(res.getEmail(), pass, getAuthorities(res.getAuthorities()));
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+    }
 }
