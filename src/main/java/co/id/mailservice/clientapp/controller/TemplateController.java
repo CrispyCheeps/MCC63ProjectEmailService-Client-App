@@ -27,7 +27,7 @@ public class TemplateController {
     @GetMapping
     public String index(Model model) {
         model.addAttribute("authorities", SecurityContextHolder.getContext().getAuthentication());
-        return "template/index";
+        return "template/index2";
     }
 
     @GetMapping("/getAll")
