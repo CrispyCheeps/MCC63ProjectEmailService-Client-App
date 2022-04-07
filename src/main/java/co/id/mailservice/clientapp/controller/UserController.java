@@ -48,6 +48,6 @@ public class UserController {
             return "SignUpPage";
         }
         userService.create(userData);
-        return "redirect:/home";
+        return "redirect:/login";
     }
 }

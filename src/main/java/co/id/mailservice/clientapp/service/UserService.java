@@ -45,11 +45,6 @@ public class UserService {
     public void create(UserData userData) {
         userData.setRoleId(1L);
         try {
-//            System.out.println(userData.getId());
-//            System.out.println(userData.getName());
-//            System.out.println(userData.getEmail());
-//            System.out.println(userData.getPassword());
-//            System.out.println(userData.getRoleId());
             restTemplate.exchange(
                     url,
                     HttpMethod.POST,

@@ -1,5 +1,6 @@
 package co.id.mailservice.clientapp.service;
 
+import co.id.mailservice.clientapp.model.EmailListName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -29,9 +30,10 @@ public class ParticipantService {
     @Value("${app.baseUrl}/participant")
     private String url;
 
-    public void uploadFile(MultipartFile file) {
+    public void uploadFile(MultipartFile file, EmailListName emailListName) {
+        Long emailListNameId = emailListName.getId();
         try {
-
+            /*
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
@@ -48,11 +50,19 @@ public class ParticipantService {
                     requestEntity,
                     new ParameterizedTypeReference<MultipartFile>() {
             }
-            );
+             */
 
+            ResponseEntity<MultipartFile> response = restTemplate.exchange(
+                    url,
+                    HttpMethod.POST,
+                    new HttpEntity<>(file),
+                    new ParameterizedTypeReference<MultipartFile>() {
+                    }
+            );
         } catch (ResponseStatusException ex) {
             throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
         }
-    }
 
+
+    }
 }

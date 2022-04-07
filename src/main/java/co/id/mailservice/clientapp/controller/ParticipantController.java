@@ -1,6 +1,8 @@
 package co.id.mailservice.clientapp.controller;
 
+import co.id.mailservice.clientapp.model.EmailListName;
 import co.id.mailservice.clientapp.model.dto.EmailListNameData;
+import co.id.mailservice.clientapp.model.dto.LoginRequestData;
 import co.id.mailservice.clientapp.model.dto.ParticipantData;
 import co.id.mailservice.clientapp.service.ParticipantService;
 import lombok.AllArgsConstructor;
@@ -20,15 +22,19 @@ import javax.validation.Valid;
 public class ParticipantController {
 
     private ParticipantService participantService;
+    @GetMapping("/login")
+    public String login(LoginRequestData loginRequestData) {
+        return "LoginPage";
+    }
 
     @GetMapping("/participant")
-    public String index() {
+    public String index(EmailListName emailListName) {
         return "CreateImportParticipantPage";
     }
 
     @PostMapping("/participant")
-    public String create(@Valid @RequestParam("fileExcel") MultipartFile file) {
-        participantService.uploadFile(file);
+    public String create(@Valid @RequestParam("fileExcel") MultipartFile file, @Valid EmailListName emailListName) {
+        participantService.uploadFile(file, emailListName);
         return "redirect:/dashboard";
     }
 
