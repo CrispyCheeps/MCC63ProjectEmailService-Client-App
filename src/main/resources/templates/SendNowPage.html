@@ -1,130 +1,139 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Send Now 03</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <title>Send Email Now</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link th:href="@{/css/style.css}" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/dashboard/dash.css}" media="screen">
-    <link rel="stylesheet" th:href="@{/css/dashboard/dash_.css}" media="screen">
+        <link th:href="@{/css/style.css}" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/css/dashboard/dash.css}" media="screen">
+        <link rel="stylesheet" th:href="@{/css/dashboard/dash_.css}" media="screen">
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link id="u-theme-google-font" rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    <link id="u-page-google-font" rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+        <link id="u-theme-google-font" rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+        <link id="u-page-google-font" rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
 
-    <script class="u-script" type="text/javascript" th:src="@{/js/jquery.min.js}" defer=""></script>
-    <script class="u-script" type="text/javascript" th:src="@{/js/template.js}" defer=""></script>
+        <script class="u-script" type="text/javascript" th:src="@{/js/jquery.min.js}" defer=""></script>
+        <script class="u-script" type="text/javascript" th:src="@{/js/template.js}" defer=""></script>
 
-</head>
-<body>
-<header class="u-clearfix u-header u-header" id="sec-84ba">
-    <div class="u-clearfix u-sheet u-sheet-1">
-        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1" data-responsive-from="XL">
-            <div class="menu-collapse"
-                 style="font-size: 1rem; letter-spacing: 0px; font-weight: 500; user-select: auto;"
-                 wfd-invisible="true">
-                <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                   href="#" style="user-select: auto;">
-                    <svg class="u-svg-link" viewBox="0 0 24 24" style="user-select: auto;">
-                        <use xlink:href="#menu-hamburger" style="user-select: auto;"></use>
-                    </svg>
-                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px"
-                         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
-                         style="user-select: auto;">
-                        <g style="user-select: auto;">
+    </head>
+    <body>
+        <header class="u-clearfix u-header u-header" id="sec-84ba">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1" data-responsive-from="XL">
+                    <div class="menu-collapse"
+                         style="font-size: 1rem; letter-spacing: 0px; font-weight: 500; user-select: auto;"
+                         wfd-invisible="true">
+                        <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                           href="#" style="user-select: auto;">
+                            <svg class="u-svg-link" viewBox="0 0 24 24" style="user-select: auto;">
+                            <use xlink:href="#menu-hamburger" style="user-select: auto;"></use>
+                            </svg>
+                            <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
+                                 style="user-select: auto;">
+                            <g style="user-select: auto;">
                             <rect y="1" width="16" height="2" style="user-select: auto;"></rect>
                             <rect y="7" width="16" height="2" style="user-select: auto;"></rect>
                             <rect y="13" width="16" height="2" style="user-select: auto;"></rect>
-                        </g>
-                    </svg>
-                </a>
-            </div>
-            <div class="u-custom-menu u-nav-container" wfd-invisible="true" style="user-select: auto;">
-                <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
-                    <li class="u-nav-item" style="user-select: auto;"><a
-                            class="u-active-grey-5 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
-                            href="main.html" style="padding: 10px 20px; user-select: auto;">main</a>
-                    </li>
-                    <li class="u-nav-item" style="user-select: auto;"><a
-                            class="u-active-grey-5 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
-                            th:href="@{/template}" style="padding: 10px 20px; user-select: auto;">Template</a>
-                    </li>
-                    <li class="u-nav-item" style="user-select: auto;"><a
-                            class="u-active-grey-5 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
-                            href="Dashboard.html" style="padding: 10px 20px; user-select: auto;">Dashboard</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="u-custom-menu u-nav-container-collapse" wfd-invisible="true">
-                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav u-sidenav-1">
-                    <div class="u-inner-container-layout u-sidenav-overflow" style="user-select: auto;">
-                        <div class="u-menu-close u-menu-close-1"></div>
-                        <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item" style="user-select: auto;"><a class="u-button-style u-nav-link"
-                                                                                 th:href="@{/dashboard}"
-                                                                                 style="padding: 10px 20px; user-select: auto;">Dashboard</a>
+                            </g>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="u-custom-menu u-nav-container" wfd-invisible="true" style="user-select: auto;">
+                        <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
+                            <li class="u-nav-item" style="user-select: auto;"><a
+                                    class="u-active-grey-5 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
+                                    href="main.html" style="padding: 10px 20px; user-select: auto;">main</a>
                             </li>
-                            <li class="u-nav-item" style="user-select: auto;"><a class="u-button-style u-nav-link"
-                                                                                 th:href="@{/template}"
-                                                                                 style="padding: 10px 20px; user-select: auto;">Template</a>
+                            <li class="u-nav-item" style="user-select: auto;"><a
+                                    class="u-active-grey-5 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
+                                    th:href="@{/template}" style="padding: 10px 20px; user-select: auto;">Template</a>
                             </li>
-                            <li class="u-nav-item" style="user-select: auto;"><a class="u-button-style u-nav-link"
-                                                                                 th:href="@{/emailListName}"
-                                                                                 style="padding: 10px 20px; user-select: auto;">Add recipients</a>
-                            </li>
-                            <li class="u-nav-item" style="user-select: auto;"><a class="u-button-style u-nav-link"
-                                                                                 th:href="@{/scheduleEmail}"
-                                                                                 style="padding: 10px 20px; user-select: auto;">Send Email</a>
+                            <li class="u-nav-item" style="user-select: auto;"><a
+                                    class="u-active-grey-5 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
+                                    href="Dashboard.html" style="padding: 10px 20px; user-select: auto;">Dashboard</a>
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="u-black u-menu-overlay u-opacity u-opacity-70" wfd-invisible="true"></div>
-            </div>
-        </nav>
-        <h5 class="u-custom-font u-text u-text-default u-text-1"><b style="user-select: auto;">Send Now</b>
-        </h5>
-    </div>
-</header>
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center mb-5">
-                <h2 class="heading-section">Send Now</h2>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-7 col-lg-5">
-                <div class="login-wrap p-4 p-md-5">
-                    <div class="d-flex">
-                        <div class="w-100">
-                        </div>
-                    </div>
-                    <form th:action="@{/sendNow}" th:object="${scheduleEmailData}" th:method="POST" class="SendNow-form">
-                        <div class="form-group">
-                            <div class="icon d-flex align-items-center justify-content-center"></div>
-                            <input type="text" class="form-control rounded-left" th:field="*{emailListName}" placeholder="emailListName" required/>
-                        </div>
-                        <div class="form-group">
-                            <div class="icon d-flex align-items-center justify-content-center"></div>
-                            <input type="text" class="form-control rounded-left" th:field="*{subject}" placeholder="subject" required/>
-                        </div>
-                        <div class="form-group d-flex align-items-center">
-                            <div class="w-100 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary rounded submit">Submit</button>
+                    <div class="u-custom-menu u-nav-container-collapse" wfd-invisible="true">
+                        <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav u-sidenav-1">
+                            <div class="u-inner-container-layout u-sidenav-overflow" style="user-select: auto;">
+                                <div class="u-menu-close u-menu-close-1"></div>
+                                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                                    <li class="u-nav-item" style="user-select: auto;"><a class="u-button-style u-nav-link"
+                                                                                         th:href="@{/dashboard}"
+                                                                                         style="padding: 10px 20px; user-select: auto;">Dashboard</a>
+                                    </li>
+                                    <li class="u-nav-item" style="user-select: auto;"><a class="u-button-style u-nav-link"
+                                                                                         th:href="@{/template}"
+                                                                                         style="padding: 10px 20px; user-select: auto;">Template</a>
+                                    </li>
+                                    <li class="u-nav-item" style="user-select: auto;"><a class="u-button-style u-nav-link"
+                                                                                         th:href="@{/emailListName}"
+                                                                                         style="padding: 10px 20px; user-select: auto;">Add recipients</a>
+                                    </li>
+                                    <li class="u-nav-item" style="user-select: auto;"><a class="u-button-style u-nav-link"
+                                                                                         th:href="@{/scheduleEmail}"
+                                                                                         style="padding: 10px 20px; user-select: auto;">Send Email</a>
+                                    </li>
+                                    <li class="u-nav-item" style="user-select: auto;"><a class="u-button-style u-nav-link"
+                                                                                         th:href="@{/login}"
+                                                                                         style="padding: 10px 20px; user-select: auto;">Logout</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </form>
+                        <div class="u-black u-menu-overlay u-opacity u-opacity-70" wfd-invisible="true"></div>
+                    </div>
+                </nav>
+                <h5 class="u-custom-font u-text u-text-default u-text-1"><b style="user-select: auto;">Send Now</b>
+                </h5>
+            </div>
+        </header>
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">Send Now</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-7 col-lg-5">
+                        <div class="login-wrap p-4 p-md-5">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                </div>
+                            </div>
+                            <form th:action="@{/sendNow}" th:object="${scheduleEmailData}" th:method="POST" class="SendNow-form">
+                                <div class="form-group">
+                                    <div class="icon d-flex align-items-center justify-content-center"></div>
+                                    <input type="text" class="form-control rounded-left" th:field="*{emailListName}" placeholder="Name list of email" required/>
+                                </div>
+                                <div class="form-group">
+                                    <div class="icon d-flex align-items-center justify-content-center"></div>
+                                    <input type="text" class="form-control rounded-left" th:field="*{subject}" placeholder="Subject" required/>
+                                </div>
+                                <div class="form-group d-flex align-items-center">
+                                    <div class="w-100 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary rounded submit">Submit</button>
+                                    </div>
+                                </div>
+                                <div class="form-group text-align-center" >
+                                    <div class="font-weight-bold text-align-center" align="center" style="color:#800000">
+                                        PLEASE INPUT BASED ON DATA THAT HAS BEEN INPUTTED
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-</body>
+        </section>
+    </body>
 </html>
 
