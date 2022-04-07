@@ -25,7 +25,7 @@ public class EmailListNameController {
     private EmailListNameService emailListNameService;
 
     @GetMapping("/emailListName")
-    public String index(EmailListNameData emailListNameDatal) {
+    public String index(EmailListNameData emailListNameData) {
         return "CreateEmailListNamePage";
     }
 
