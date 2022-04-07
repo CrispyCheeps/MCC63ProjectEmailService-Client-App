@@ -37,7 +37,7 @@ public class LoginController {
     }
 
     @GetMapping("/dashboard")
-    public String dashboard() {
+    @ResponseBody public String dashboard() {
         return "Dashboard";
     }
 }
