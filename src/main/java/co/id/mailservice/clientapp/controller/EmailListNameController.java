@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @AllArgsConstructor
-//@RequestMapping("/emailListName")
 public class EmailListNameController {
 
     private EmailListNameService emailListNameService;
@@ -30,11 +29,6 @@ public class EmailListNameController {
         return "CreateEmailListNamePage";
     }
 
-//    @GetMapping("/createEmailListName")
-//    public String createEmailListName(EmailListName emailListName) {
-//        return "CreateEmailListNamePage";
-//    }
-
     @PostMapping("/emailListName")
     public String create(@Valid EmailListNameData emailListNameData, BindingResult bindingResult, Authentication authentication) {
         if (bindingResult.hasErrors()) {
@@ -42,7 +36,7 @@ public class EmailListNameController {
         }
         emailListNameData.setUserName(authentication.getName());
         emailListNameService.create(emailListNameData);
-        return "redirect:/dashboard";
+        return "redirect:/participant";
     }
-    
+
 }
