@@ -1,6 +1,8 @@
 package co.id.mailservice.clientapp.model.dto;
 
+import co.id.mailservice.clientapp.utility.RequestHeader;
 import lombok.Data;
+import org.springframework.security.core.Authentication;
 
 @Data
 public class KontenData {
