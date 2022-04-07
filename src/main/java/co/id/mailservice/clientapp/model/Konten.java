@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  *
  * @author Deanchristt
@@ -25,6 +27,6 @@ public class Konten {
     private String body;
     private String footer;
     private String attachment;
-    private EmailListName emailListName;
+    private List<ScheduleEmail> scheduleEmails;
     private Template template;
 }

@@ -8,6 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +28,7 @@ public class TemplateController {
     @GetMapping
     public String index(Model model) {
         model.addAttribute("authorities", SecurityContextHolder.getContext().getAuthentication());
-        return "template/index";
+        return "template/index2";
     }
 
     @GetMapping("/getAll")
@@ -35,4 +36,5 @@ public class TemplateController {
     ResponseEntity<List<Template>> getAll() {
         return ResponseEntity.ok(templateService.getAll());
     }
+
 }

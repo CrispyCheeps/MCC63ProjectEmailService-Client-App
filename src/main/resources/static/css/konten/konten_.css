@@ -1,0 +1,203 @@
+ .u-section-1 {
+  background-image: none;
+  user-select: auto;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 795px;
+  user-select: auto;
+}
+
+.u-section-1 .u-text-1 {
+  font-family: Poppins;
+  user-select: auto;
+  font-size: 1.25rem;
+  margin: 43px 377px 0 0;
+}
+
+.u-section-1 .u-layout-wrap-1 {
+  user-select: auto;
+  width: 1115px;
+  margin: 26px 0 54px auto;
+}
+
+.u-section-1 .u-layout-cell-1 {
+  min-height: 660px;
+  user-select: auto;
+}
+
+.u-section-1 .u-container-layout-1 {
+  user-select: auto;
+  padding: 30px 0;
+}
+
+.u-section-1 .u-form-1 {
+  height: 476px;
+  background-image: none;
+  user-select: auto;
+  width: 551px;
+  margin: 0 auto;
+}
+
+.u-section-1 .u-form-group-1 {
+  user-select: auto;
+}
+
+.u-section-1 .u-label-1 {
+  user-select: auto;
+}
+
+.u-section-1 .u-input-1 {
+  user-select: auto;
+}
+
+.u-section-1 .u-form-group-2 {
+  user-select: auto;
+}
+
+.u-section-1 .u-label-2 {
+  user-select: auto;
+}
+
+.u-section-1 .u-input-2 {
+  user-select: auto;
+}
+
+.u-section-1 .u-form-group-3 {
+  user-select: auto;
+}
+
+.u-section-1 .u-label-3 {
+  user-select: auto;
+}
+
+.u-section-1 .u-input-3 {
+  user-select: auto;
+}
+
+.u-section-1 .u-form-group-4 {
+  user-select: auto;
+}
+
+.u-section-1 .u-btn-1 {
+  border-style: solid;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-image: none;
+  width: 100%;
+  user-select: auto;
+}
+
+.kontenContoh {
+  min-height: 660px;
+  user-select: auto;
+  background-position: 50% 36.83%;
+}
+
+.u-section-1 .u-image-1 {
+  min-height: 660px;
+  user-select: auto;
+  background-image: url("https://cdn.discordapp.com/attachments/945235368385601606/961071916838432808/promoUmum.png");
+  background-position: 50% 36.83%;
+}
+
+.u-section-1 .u-container-layout-2 {
+  user-select: auto;
+  padding: 30px 60px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 719px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-right: 177px;
+  }
+
+  .u-section-1 .u-layout-wrap-1 {
+    width: 940px;
+  }
+
+  .u-section-1 .u-layout-cell-1 {
+    min-height: 544px;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 465px;
+  }
+
+  .u-section-1 .u-image-1 {
+    min-height: 544px;
+    background-position: 50% 50%;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 636px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-layout-wrap-1 {
+    width: 720px;
+  }
+
+  .u-section-1 .u-layout-cell-1 {
+    min-height: 100px;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 355px;
+  }
+
+  .u-section-1 .u-image-1 {
+    min-height: 417px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 872px;
+  }
+
+  .u-section-1 .u-layout-wrap-1 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-image-1 {
+    min-height: 626px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 721px;
+  }
+
+  .u-section-1 .u-layout-wrap-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-image-1 {
+    min-height: 394px;
+  }
+}
