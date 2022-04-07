@@ -5,6 +5,7 @@ import co.id.mailservice.clientapp.model.dto.KontenData;
 import co.id.mailservice.clientapp.model.dto.LoginRequestData;
 import co.id.mailservice.clientapp.service.KontenService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,17 +28,16 @@ public class KontenController {
     }
 
     @GetMapping
-    public String index(Model model) {
-        model.addAttribute("authorities", SecurityContextHolder.getContext().getAuthentication());
+    public String index(KontenData kontenData) {
         return "konten/index";
     }
 
     @PostMapping("/create")
-    public String create(@Valid KontenData kontenData, BindingResult bindingResult) {
+    public String create(@Valid KontenData kontenData, BindingResult bindingResult, Authentication auth) {
         if (bindingResult.hasErrors()) {
             return "konten/index";
         }
-
+        kontenData.setUserName(auth.getName());
         kontenService.create(kontenData);
         return "redirect:/dashboard";
     }

@@ -10,7 +10,6 @@ public class KontenData {
     private String body;
     private String footer;
     private String attachment;
-    private String scheduleEmail;
-    private Long user;
+    private String userName;
     private Long template;
 }

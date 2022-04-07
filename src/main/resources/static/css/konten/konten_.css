@@ -89,6 +89,12 @@
   user-select: auto;
 }
 
+.kontenContoh {
+  min-height: 660px;
+  user-select: auto;
+  background-position: 50% 36.83%;
+}
+
 .u-section-1 .u-image-1 {
   min-height: 660px;
   user-select: auto;
