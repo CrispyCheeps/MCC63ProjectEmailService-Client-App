@@ -1,39 +1,47 @@
 package co.id.mailservice.clientapp.controller;
 
 import co.id.mailservice.clientapp.model.EmailListName;
+import co.id.mailservice.clientapp.model.User;
 import co.id.mailservice.clientapp.model.dto.EmailListNameData;
 import co.id.mailservice.clientapp.model.dto.LoginRequestData;
 import co.id.mailservice.clientapp.model.dto.ParticipantData;
+import co.id.mailservice.clientapp.service.EmailListNameService;
 import co.id.mailservice.clientapp.service.ParticipantService;
+import co.id.mailservice.clientapp.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.InputStream;
+import java.util.List;
 
 @Controller
 @AllArgsConstructor
 public class ParticipantController {
 
     private ParticipantService participantService;
-    @GetMapping("/login")
-    public String login(LoginRequestData loginRequestData) {
-        return "LoginPage";
-    }
+    private UserService userService;
 
     @GetMapping("/participant")
-    public String index(EmailListName emailListName) {
+    public String index(EmailListName emailListName, Authentication auth, Model model) {
+        List<EmailListName> user= userService.findByEmail(auth.getName());
+        model.addAttribute("users", user);
         return "CreateImportParticipantPage";
     }
 
     @PostMapping("/participant")
-    public String create(@Valid @RequestParam("fileExcel") MultipartFile file, @Valid EmailListName emailListName) {
+    public String create(@Valid MultipartFile file, EmailListName emailListName, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "CreateImportParticipantPage";
+        }
+//        InputStream in = file.getInputStream();
+//        File currDir = new File(".");
         participantService.uploadFile(file, emailListName);
         return "redirect:/dashboard";
     }

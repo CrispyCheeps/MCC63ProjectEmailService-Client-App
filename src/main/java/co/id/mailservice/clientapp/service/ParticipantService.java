@@ -1,6 +1,7 @@
 package co.id.mailservice.clientapp.service;
 
 import co.id.mailservice.clientapp.model.EmailListName;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -17,8 +18,12 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
-public class ParticipantService {
+public class ParticipantService implements Serializable {
 
     private RestTemplate restTemplate;
 
@@ -30,10 +35,22 @@ public class ParticipantService {
     @Value("${app.baseUrl}/participant")
     private String url;
 
-    public void uploadFile(MultipartFile file, EmailListName emailListName) {
-        Long emailListNameId = emailListName.getId();
+
+    public Object readByteStreamFromFileAndDeSerializeToObject(String filename)
+            throws IOException, ClassNotFoundException {
+        Object object = null;
+        System.out.printf("\nDe-serialization bytestream from file: %s", filename);
+        try (ObjectInputStream reader = new ObjectInputStream(new FileInputStream(filename))) {
+            object = reader.readObject();
+        }
+
+        return object;
+    }
+
+    @JsonSerialize
+    public void uploadFile(MultipartFile file, EmailListName emailListName){
         try {
-            /*
+
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
@@ -44,16 +61,13 @@ public class ParticipantService {
             HttpEntity<MultiValueMap<String, Object>> requestEntity
                     = new HttpEntity<>(body, headers);
 
-            ResponseEntity<MultipartFile> response = restTemplate.exchange(
-                    url.concat("/upload"),
-                    HttpMethod.POST,
-                    requestEntity,
-                    new ParameterizedTypeReference<MultipartFile>() {
-            }
-             */
+            Map<String, Object> pembungkus = new HashMap<>();
+            pembungkus.put("file", file);
+            pembungkus.put("emailListNameId", emailListName.getId());
 
-            ResponseEntity<MultipartFile> response = restTemplate.exchange(
-                    url,
+
+            ResponseEntity<MultipartFile> res = restTemplate.exchange(
+                    url.concat("/upload/" + emailListName.getId()),
                     HttpMethod.POST,
                     new HttpEntity<>(file),
                     new ParameterizedTypeReference<MultipartFile>() {
