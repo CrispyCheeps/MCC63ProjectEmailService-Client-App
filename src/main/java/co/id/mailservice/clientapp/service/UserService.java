@@ -43,7 +43,13 @@ public class UserService {
     private String url;
     
     public void create(UserData userData) {
+        userData.setRoleId(1L);
         try {
+//            System.out.println(userData.getId());
+//            System.out.println(userData.getName());
+//            System.out.println(userData.getEmail());
+//            System.out.println(userData.getPassword());
+//            System.out.println(userData.getRoleId());
             restTemplate.exchange(
                     url,
                     HttpMethod.POST,
@@ -55,16 +61,4 @@ public class UserService {
             throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
         }
     }
-
-//    public HttpHeaders createHeaders(String username, String password) {
-//        return new HttpHeaders() {
-//            {
-//                String auth = username + ":" + password;
-//                byte[] encodeAuth = Base64.encodeBase64(
-//                        auth.getBytes(Charset.forName("US-ASCII")));
-//                String authHeader = "Basic " + new String(encodeAuth);
-//                set("Authorization", authHeader);
-//            }
-//        };
-//    }
 }

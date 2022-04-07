@@ -43,7 +43,7 @@ public class UserController {
     }
 
     @PostMapping( "/register")
-    public String create(@Valid @RequestBody UserData userData, BindingResult result) {
+    public String create(@Valid UserData userData, BindingResult result) {
         if (result.hasErrors()) {
             return "SignUpPage";
         }
