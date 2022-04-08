@@ -1,14 +1,18 @@
 package co.id.mailservice.clientapp.controller;
 
+import co.id.mailservice.clientapp.helper.ExcelHelper;
 import co.id.mailservice.clientapp.model.EmailListName;
 import co.id.mailservice.clientapp.model.User;
 import co.id.mailservice.clientapp.model.dto.EmailListNameData;
 import co.id.mailservice.clientapp.model.dto.LoginRequestData;
 import co.id.mailservice.clientapp.model.dto.ParticipantData;
+import co.id.mailservice.clientapp.model.dto.ResponseMessage;
 import co.id.mailservice.clientapp.service.EmailListNameService;
 import co.id.mailservice.clientapp.service.ParticipantService;
 import co.id.mailservice.clientapp.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,13 +40,17 @@ public class ParticipantController {
     }
 
     @PostMapping("/participant")
-    public String create(@Valid MultipartFile file, EmailListName emailListName, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "CreateImportParticipantPage";
+    public String create(@RequestParam("fileExcel") MultipartFile file, @RequestParam("emaiListNameId") Long emailListNameId) {
+
+        if (ExcelHelper.hasExcelFormat(file)) {
+            try {
+                participantService.uploadFile(file, emailListNameId);
+
+            } catch (Exception e) {
+
+            }
         }
-//        InputStream in = file.getInputStream();
-//        File currDir = new File(".");
-        participantService.uploadFile(file, emailListName);
+        participantService.uploadFile(file, emailListNameId);
         return "redirect:/dashboard";
     }
 

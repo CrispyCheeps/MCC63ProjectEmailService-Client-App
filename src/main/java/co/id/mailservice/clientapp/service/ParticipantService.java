@@ -1,6 +1,8 @@
 package co.id.mailservice.clientapp.service;
 
+import co.id.mailservice.clientapp.helper.ExcelHelper;
 import co.id.mailservice.clientapp.model.EmailListName;
+import co.id.mailservice.clientapp.model.dto.ParticipantData;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +22,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -47,33 +50,19 @@ public class ParticipantService implements Serializable {
         return object;
     }
 
-    @JsonSerialize
-    public void uploadFile(MultipartFile file, EmailListName emailListName){
+//    @JsonSerialize
+    public void uploadFile(MultipartFile file, Long emailListNameId){
         try {
 
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-
-            MultiValueMap<String, Object> body
-                    = new LinkedMultiValueMap<>();
-            body.add("file", file);
-
-            HttpEntity<MultiValueMap<String, Object>> requestEntity
-                    = new HttpEntity<>(body, headers);
-
-            Map<String, Object> pembungkus = new HashMap<>();
-            pembungkus.put("file", file);
-            pembungkus.put("emailListNameId", emailListName.getId());
-
-
+            List<ParticipantData> participantsData = ExcelHelper.excelToParticipants(file.getInputStream());
             ResponseEntity<MultipartFile> res = restTemplate.exchange(
-                    url.concat("/upload/" + emailListName.getId()),
+                    url.concat("/upload/" + emailListNameId),
                     HttpMethod.POST,
-                    new HttpEntity<>(file),
+                    new HttpEntity<>(participantsData),
                     new ParameterizedTypeReference<MultipartFile>() {
                     }
             );
-        } catch (ResponseStatusException ex) {
+        } catch (ResponseStatusException | IOException ex) {
             throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
         }
 

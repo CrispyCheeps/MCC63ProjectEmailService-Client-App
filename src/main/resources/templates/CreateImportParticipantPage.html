@@ -114,13 +114,13 @@
                         <div class="w-100">
                         </div>
                     </div>
-                    <form th:action="@{/participant}" th:object="${emailListName}" class="Import-Participant-form" th:method="POST" enctype="multipart/form-data">
+                    <form th:action="@{/participant}" class="Import-Participant-form" th:method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                                 <label for="importParticipant">Upload file '.xlsx'</label>
                                 <input type="file" class="form-control-file" name="fileExcel">
                         </div>
                         <div>
-                            <select id="emaiListNameId" name="emaiListNameId" th:field="*{id}">
+                            <select id="emaiListNameId" name="emaiListNameId">
                                 <option th:each="user : ${users}" th:text="${user.getName()}" th:value="${user.getId()}"></option>
                             </select>
                         </div>
