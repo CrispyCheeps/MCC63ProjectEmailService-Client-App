@@ -57,7 +57,9 @@ public class UserService {
     }
     
     public void create(UserData userData) {
-        userData.setRoleId(1L);
+        int id = 1;
+        Long userId = Long.valueOf(id);
+        userData.setRoleId(userId);
         try {
             restTemplate.exchange(
                     url,
